@@ -1,7 +1,7 @@
 package bridge.service;
 
 import bridge.domain.Bridge;
-import bridge.domain.BridgeMaker;
+import bridge.BridgeMaker;
 
 import java.util.List;
 
