@@ -1,6 +1,8 @@
 package bridge.controller;
 
 import bridge.constant.BridgeSize;
+import bridge.domain.Bridge;
+import bridge.service.BridgeService;
 import bridge.view.input.InputView;
 import bridge.view.output.OutputView;
 
@@ -11,14 +13,22 @@ public class BridgeController {
 
     private final InputView inputView;
     private final OutputView outputView;
+    private final BridgeService bridgeService;
 
-    public BridgeController(InputView inputView, OutputView outputView) {
+    public BridgeController(InputView inputView, OutputView outputView, BridgeService bridgeService) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.bridgeService = bridgeService;
     }
 
     public void run() {
+        Bridge bridge = initBridge();
+    }
+
+    private Bridge initBridge() {
         int bridgeLength = inputBridgeLength();
+
+        return bridgeService.createBridge(bridgeLength);
     }
 
     private int inputBridgeLength() {
